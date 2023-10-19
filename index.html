@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="margin: auto; width: 25%;">
+        <h1>Pedra, Papel ou Tesoura</h1>
+    </div>
+    <div class="tela">
+        <div class="player">
+            <h1>Player</h1>
+            <button id='pedrap' class="acao pedra" value="pedra">  </button>
+            <button id="papelp" class="acao papel" value="papel"></button>
+            <button id="tesourap" class="acao tesoura" value="tesoura"> </button>
+        </div>
+            <div class="player" id="computer">
+                <h2>Compiuter</h2> 
+                <button id="pedrac" class="pedra acao computer">
+                <button id='papelc' class="papel acao computer">
+                <button id ='tesourac' class="tesoura acao computer"></button>
+            </div>
+        </div>
+    <div class="result">
+        <h2>Resultado: </h2>
+        <strong><p id="result"></p></strong>
+    </div>
+
+    <script>
+
+
+                function verificarResultado(jogadac, jogadas) {
+                   
+            if (jogadac == jogadas) {
+                document.getElementById('result').textContent = 'Empate';
+                 
+
+            } else if (jogadas == 0 && jogadac == 2) {
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Ganhou';
+            }
+            else if (jogadas == 1 && jogadac == 0){
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Ganhou';
+            }
+            else if (jogadas == 2  && jogadac  == 1){
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Ganhou';
+            } else if (jogadas == 0 && jogadac == 1){
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Perdeu';
+            } else if(jogadas == 1 && jogadac == 2){
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Perdeu';
+            } else{
+                document.getElementById('result').textContent = ' ';
+                document.getElementById('result').textContent = 'Perdeu';
+            }
+        }
+        function opacity(itemescolhido){
+                  if(itemescolhido=='pedra'){
+                    pedrac.style.opacity=1
+                    tesourac.style.opacity=0.25
+                    papelc.style.opacity=0.25
+
+                  } else if(itemescolhido=='papel'){
+                    papelc.style.opacity=1
+                    pedrac.style.opacity=0.25
+                    tesourac.style.opacity=0.25
+                  }
+                  else{
+                    tesourac.style.opacity=1
+                    pedrac.style.opacity=0.25
+                    papelc.style.opacity=0.25
+
+                  }
+        }
+        function jogada(){
+            var jogadas
+            var jogadac
+            var itemescolhido
+            var vetjogadac=['pedra','papel','tesoura'];
+            var pedrap = document.getElementById('pedrap');
+            var papelp = document.getElementById('papelp');
+            var tesourap = document.getElementById('tesourap');
+
+            var pedrac = document.getElementById('pedrac');
+            var papelc = document.getElementById('papelc');
+            var tesourac = document.getElementById('tesourac');
+
+            pedrap.addEventListener('click', () => {
+                 jogadas = '0'
+                 jogadac=random(2)
+                 itemescolhido=vetjogadac[jogadac];
+                 verificarResultado(jogadac, jogadas)
+                 pedrap.style.opacity=1
+                 tesourap.style.opacity=0.25
+                 papelp.style.opacity=0.25
+                  opacity(itemescolhido)
+            })
+            papelp.addEventListener('click', () => {
+                 jogadas = '1'
+                 jogadac = random(2)
+                 itemescolhido=vetjogadac[jogadac];
+                 verificarResultado(jogadac, jogadas)
+                 papelp.style.opacity=1
+                 pedrap.style.opacity=0.25
+                 tesourap.style.opacity=0.25
+                 opacity(itemescolhido)
+            })
+            tesourap.addEventListener('click', () => {
+                jogadas = '2'
+                jogadac = random(2)
+                itemescolhido=vetjogadac[jogadac];
+                verificarResultado(jogadac, jogadas)
+                tesourap.style.opacity=1
+                pedrap.style.opacity=0.25
+                papelp.style.opacity=0.25
+                opacity(itemescolhido)
+                
+            })
+}
+        function random(number) {
+        return Math.floor/* arredonda o valor */(Math.random() * (number + 1));/* valor aletorio  */
+}
+jogada()
+    </script>
+</body>
+</html>

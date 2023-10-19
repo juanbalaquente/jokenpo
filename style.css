@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background-color: gray;
+}
+.tela{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+    text-align: center;
+}
+.computer{
+    background-color: blueviolet;
+}
+.papel{
+    background-image: url(Gallery/papel.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 25px 25px;
+}
+.tesoura{
+    background-image: url(Gallery/tesoura.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.pedra{
+    background-image: url(Gallery/pedra.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.acao{
+    width: 100px;
+    height: 150px;
+    background-color: #0490cc;
+    border: none;
+    opacity: 25%;
+}
+.acao:hover{
+    opacity: 100%;
+    cursor: pointer;
+}
+.player{
+    margin: 45px;
+    width: 700px;
+    height: 250px;
+    background-color: #0490cc;
+    border-radius: 15px;
+}
+#computer, .computer{
+    background-color: blueviolet;
+}
+.vs{
+    position: absolute;
+    top: 25%;
+    left: 47.7%;
+}
+.result{
+    width: 90%;
+    height: 75px;
+    background-color: orangered;
+    border-radius: 15px;
+    margin: auto;
+    text-align: center;
+}
